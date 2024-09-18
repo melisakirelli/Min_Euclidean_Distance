@@ -1,0 +1,26 @@
+import math
+
+# List of tuples representing points in 2D space
+points = [(1, 2), (3, 6), (4, 7), (5, 2), (2, 1)]
+
+# Empty list to store distances 
+distances = []
+
+# Function to calculate Euclidean distance
+def euclideanDistance(point1, point2):
+    x1, y1 = point1
+    x2, y2 = point2
+    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
+# To calculate the distance between all pairs of points
+for i in range(len(points)):
+    for j in range(i + 1, len(points)):
+        distance = euclideanDistance(points[i], points[j])
+        distances.append(distance)
+
+# Finding the minimum distance
+min_distance = min(distances)
+
+# Print results
+print("All distances:", distances)
+print("Minimum distance:", min_distance)
